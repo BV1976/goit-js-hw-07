@@ -19,17 +19,22 @@ function createBoxes() {
     return;
   }
 
+  boxesContainer.innerHTML = '';
+
+  const fragment = document.createDocumentFragment();
+
   for (let i = 0; i < amount; i++) {
     const div = document.createElement('div');
     div.style.width = 30 + i * 10 + 'px';
     div.style.height = 30 + i * 10 + 'px';
     div.style.backgroundColor = getRandomHexColor();
-    boxesContainer.appendChild(div);
+    fragment.appendChild(div);
   }
+
+  boxesContainer.appendChild(fragment);
 
   input.value = '';
 }
-
 function destroyBoxes() {
   boxesContainer.innerHTML = '';
 }
